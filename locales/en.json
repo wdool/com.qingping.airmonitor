@@ -1,0 +1,26 @@
+{
+  "pair": {
+    "login": {
+      "title": "Connect Qingping",
+      "hint": "Enter your Qingping API Client ID and Client Secret from the developer portal.",
+      "clientId": "Client ID",
+      "clientSecret": "Client Secret",
+      "connect": "Connect",
+      "failed": "Invalid credentials. Please check your Client ID and Client Secret.",
+      "missingFields": "Please fill in both fields.",
+      "help": "Find your credentials at developer.qingping.co under \"OAuth Apps\"."
+    }
+  },
+  "settings": {
+    "poll_interval": {
+      "label": "Poll interval (minutes)",
+      "hint": "How often to fetch sensor data from the Qingping API."
+    }
+  },
+  "error": {
+    "device_not_found": "Device not found in API response.",
+    "missing_credentials": "Missing API credentials. Please re-pair the device.",
+    "token_failed": "Failed to obtain API token. Check your credentials.",
+    "api_failed": "API request failed. Check your internet connection."
+  }
+}

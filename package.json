@@ -1,0 +1,17 @@
+{
+  "name": "com.qingping.airmonitor",
+  "version": "1.0.0",
+  "description": "Qingping Air Monitor for Homey",
+  "main": "app.js",
+  "scripts": {
+    "start": "homey app run"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "homey": "latest"
+  },
+  "license": "GPL-3.0"
+}

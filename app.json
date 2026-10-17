@@ -1,0 +1,329 @@
+{
+  "id": "com.qingping.airmonitor",
+  "version": "1.0.0",
+  "compatibility": ">=12.2.0",
+  "sdk": 3,
+  "brandColor": "#1C2B2D",
+  "platforms": ["local"],
+  "name": {
+    "en": "Qingping Air Monitor",
+    "nl": "Qingping Luchtmonitor"
+  },
+  "description": {
+    "en": "Monitor indoor air quality with Qingping sensors. Track CO₂, PM2.5, PM10, temperature and humidity.",
+    "nl": "Bewaak de binnenluchtkwaliteit met Qingping sensoren. Volg CO₂, PM2.5, PM10, temperatuur en vochtigheid."
+  },
+  "tags": {
+    "en": ["air quality", "CO2", "PM2.5", "PM10", "temperature", "humidity", "Qingping", "Cleargrass", "indoor", "sensor"],
+    "nl": ["luchtkwaliteit", "CO2", "PM2.5", "PM10", "temperatuur", "vochtigheid", "Qingping", "Cleargrass", "binnen", "sensor"]
+  },
+  "category": ["climate"],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Wout van den Dool",
+    "email": "wout@vandendool.dev"
+  },
+  "bugs": {
+    "url": "https://github.com/wdool/com.qingping.airmonitor/issues"
+  },
+  "source": "https://github.com/wdool/com.qingping.airmonitor",
+  "homepage": "https://www.qingping.co",
+  "drivers": [
+    {
+      "id": "air-monitor",
+      "name": {
+        "en": "Air Monitor",
+        "nl": "Luchtmonitor"
+      },
+      "platforms": ["local"],
+      "class": "sensor",
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_co2",
+        "measure_pm25",
+        "measure_pm10"
+      ],
+      "capabilitiesOptions": {
+        "measure_temperature": {
+          "title": { "en": "Temperature", "nl": "Temperatuur" }
+        },
+        "measure_humidity": {
+          "title": { "en": "Humidity", "nl": "Vochtigheid" }
+        },
+        "measure_co2": {
+          "title": { "en": "CO₂", "nl": "CO₂" }
+        },
+        "measure_pm25": {
+          "title": { "en": "PM2.5", "nl": "PM2.5" }
+        },
+        "measure_pm10": {
+          "title": { "en": "PM10", "nl": "PM10" }
+        }
+      },
+      "images": {
+        "small": "/drivers/air-monitor/assets/images/small.png",
+        "large": "/drivers/air-monitor/assets/images/large.png",
+        "xlarge": "/drivers/air-monitor/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "logo": "/drivers/air-monitor/assets/icon.svg",
+            "title": {
+              "en": "Connect Qingping",
+              "nl": "Qingping verbinden"
+            },
+            "hint": {
+              "en": "Enter your Qingping API Client ID and Client Secret.",
+              "nl": "Voer uw Qingping API Client ID en Client Secret in."
+            },
+            "usernameLabel": {
+              "en": "Client ID",
+              "nl": "Client ID"
+            },
+            "passwordLabel": {
+              "en": "Client Secret",
+              "nl": "Client Secret"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "poll_interval",
+          "type": "number",
+          "label": {
+            "en": "Poll interval (minutes)",
+            "nl": "Poll interval (minuten)"
+          },
+          "hint": {
+            "en": "How often to fetch sensor data from the Qingping API.",
+            "nl": "Hoe vaak sensordata wordt opgehaald van de Qingping API."
+          },
+          "value": 5,
+          "min": 5,
+          "max": 60
+        }
+      ]
+    }
+  ],
+  "flow": {
+    "triggers": [
+      {
+        "id": "co2_threshold_exceeded",
+        "title": {
+          "en": "CO₂ exceeds threshold",
+          "nl": "CO₂ overschrijdt drempelwaarde"
+        },
+        "titleFormatted": {
+          "en": "CO₂ exceeds [[threshold]] ppm",
+          "nl": "CO₂ overschrijdt [[threshold]] ppm"
+        },
+        "hint": {
+          "en": "Triggered when CO₂ level rises above the set threshold.",
+          "nl": "Geactiveerd wanneer het CO₂-niveau boven de ingestelde drempelwaarde stijgt."
+        },
+        "tokens": [
+          {
+            "name": "co2",
+            "type": "number",
+            "title": { "en": "CO₂ (ppm)", "nl": "CO₂ (ppm)" }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=air-monitor"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": { "en": "1000", "nl": "1000" }
+          }
+        ]
+      },
+      {
+        "id": "pm25_threshold_exceeded",
+        "title": {
+          "en": "PM2.5 exceeds threshold",
+          "nl": "PM2.5 overschrijdt drempelwaarde"
+        },
+        "titleFormatted": {
+          "en": "PM2.5 exceeds [[threshold]] μg/m³",
+          "nl": "PM2.5 overschrijdt [[threshold]] μg/m³"
+        },
+        "hint": {
+          "en": "Triggered when PM2.5 concentration rises above the set threshold.",
+          "nl": "Geactiveerd wanneer de PM2.5-concentratie boven de ingestelde drempelwaarde stijgt."
+        },
+        "tokens": [
+          {
+            "name": "pm25",
+            "type": "number",
+            "title": { "en": "PM2.5 (μg/m³)", "nl": "PM2.5 (μg/m³)" }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=air-monitor"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": { "en": "25", "nl": "25" }
+          }
+        ]
+      },
+      {
+        "id": "pm10_threshold_exceeded",
+        "title": {
+          "en": "PM10 exceeds threshold",
+          "nl": "PM10 overschrijdt drempelwaarde"
+        },
+        "titleFormatted": {
+          "en": "PM10 exceeds [[threshold]] μg/m³",
+          "nl": "PM10 overschrijdt [[threshold]] μg/m³"
+        },
+        "hint": {
+          "en": "Triggered when PM10 concentration rises above the set threshold.",
+          "nl": "Geactiveerd wanneer de PM10-concentratie boven de ingestelde drempelwaarde stijgt."
+        },
+        "tokens": [
+          {
+            "name": "pm10",
+            "type": "number",
+            "title": { "en": "PM10 (μg/m³)", "nl": "PM10 (μg/m³)" }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=air-monitor"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": { "en": "50", "nl": "50" }
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "co2_is_above",
+        "title": {
+          "en": "CO₂ !{{is|is not}} above",
+          "nl": "CO₂ !{{is|is niet}} boven"
+        },
+        "titleFormatted": {
+          "en": "CO₂ !{{is|is not}} above [[threshold]] ppm",
+          "nl": "CO₂ !{{is|is niet}} boven [[threshold]] ppm"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=air-monitor"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": { "en": "ppm", "nl": "ppm" }
+          }
+        ]
+      },
+      {
+        "id": "pm25_is_above",
+        "title": {
+          "en": "PM2.5 !{{is|is not}} above",
+          "nl": "PM2.5 !{{is|is niet}} boven"
+        },
+        "titleFormatted": {
+          "en": "PM2.5 !{{is|is not}} above [[threshold]] μg/m³",
+          "nl": "PM2.5 !{{is|is niet}} boven [[threshold]] μg/m³"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=air-monitor"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": { "en": "μg/m³", "nl": "μg/m³" }
+          }
+        ]
+      },
+      {
+        "id": "pm10_is_above",
+        "title": {
+          "en": "PM10 !{{is|is not}} above",
+          "nl": "PM10 !{{is|is niet}} boven"
+        },
+        "titleFormatted": {
+          "en": "PM10 !{{is|is not}} above [[threshold]] μg/m³",
+          "nl": "PM10 !{{is|is niet}} boven [[threshold]] μg/m³"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=air-monitor"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": { "en": "μg/m³", "nl": "μg/m³" }
+          }
+        ]
+      },
+      {
+        "id": "humidity_is_above",
+        "title": {
+          "en": "Humidity !{{is|is not}} above",
+          "nl": "Vochtigheid !{{is|is niet}} boven"
+        },
+        "titleFormatted": {
+          "en": "Humidity !{{is|is not}} above [[threshold]]%",
+          "nl": "Vochtigheid !{{is|is niet}} boven [[threshold]]%"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=air-monitor"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": { "en": "%", "nl": "%" }
+          }
+        ]
+      }
+    ]
+  }
+}

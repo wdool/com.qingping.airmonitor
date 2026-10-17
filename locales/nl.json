@@ -1,0 +1,26 @@
+{
+  "pair": {
+    "login": {
+      "title": "Qingping verbinden",
+      "hint": "Voer uw Qingping API Client ID en Client Secret in van het ontwikkelaarsportaal.",
+      "clientId": "Client ID",
+      "clientSecret": "Client Secret",
+      "connect": "Verbinden",
+      "failed": "Ongeldige inloggegevens. Controleer uw Client ID en Client Secret.",
+      "missingFields": "Vul beide velden in.",
+      "help": "Vind uw inloggegevens op developer.qingping.co onder \"OAuth Apps\"."
+    }
+  },
+  "settings": {
+    "poll_interval": {
+      "label": "Poll interval (minuten)",
+      "hint": "Hoe vaak sensordata wordt opgehaald van de Qingping API."
+    }
+  },
+  "error": {
+    "device_not_found": "Apparaat niet gevonden in API-respons.",
+    "missing_credentials": "Ontbrekende API-inloggegevens. Koppel het apparaat opnieuw.",
+    "token_failed": "Kan geen API-token verkrijgen. Controleer uw inloggegevens.",
+    "api_failed": "API-verzoek mislukt. Controleer uw internetverbinding."
+  }
+}
