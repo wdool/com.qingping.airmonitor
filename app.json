@@ -1,11 +1,13 @@
 {
   "id": "com.qingping.airmonitor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "homeyCommunityTopicId": 161005,
   "brandColor": "#1C2B2D",
-  "platforms": ["local"],
+  "platforms": [
+    "local"
+  ],
   "name": {
     "en": "Qingping Air Monitor",
     "nl": "Qingping Luchtmonitor"
@@ -15,10 +17,34 @@
     "nl": "Bewaak de binnenluchtkwaliteit met Qingping sensoren. Volg CO₂, PM2.5, PM10, temperatuur en vochtigheid."
   },
   "tags": {
-    "en": ["air quality", "CO2", "PM2.5", "PM10", "temperature", "humidity", "Qingping", "Cleargrass", "indoor", "sensor"],
-    "nl": ["luchtkwaliteit", "CO2", "PM2.5", "PM10", "temperatuur", "vochtigheid", "Qingping", "Cleargrass", "binnen", "sensor"]
+    "en": [
+      "air quality",
+      "CO2",
+      "PM2.5",
+      "PM10",
+      "temperature",
+      "humidity",
+      "Qingping",
+      "Cleargrass",
+      "indoor",
+      "sensor"
+    ],
+    "nl": [
+      "luchtkwaliteit",
+      "CO2",
+      "PM2.5",
+      "PM10",
+      "temperatuur",
+      "vochtigheid",
+      "Qingping",
+      "Cleargrass",
+      "binnen",
+      "sensor"
+    ]
   },
-  "category": ["climate"],
+  "category": [
+    "climate"
+  ],
   "permissions": [],
   "images": {
     "small": "/assets/images/small.png",
@@ -41,7 +67,9 @@
         "en": "Air Monitor",
         "nl": "Luchtmonitor"
       },
-      "platforms": ["local"],
+      "platforms": [
+        "local"
+      ],
       "class": "sensor",
       "capabilities": [
         "measure_temperature",
@@ -52,19 +80,34 @@
       ],
       "capabilitiesOptions": {
         "measure_temperature": {
-          "title": { "en": "Temperature", "nl": "Temperatuur" }
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur"
+          }
         },
         "measure_humidity": {
-          "title": { "en": "Humidity", "nl": "Vochtigheid" }
+          "title": {
+            "en": "Humidity",
+            "nl": "Vochtigheid"
+          }
         },
         "measure_co2": {
-          "title": { "en": "CO₂", "nl": "CO₂" }
+          "title": {
+            "en": "CO₂",
+            "nl": "CO₂"
+          }
         },
         "measure_pm25": {
-          "title": { "en": "PM2.5", "nl": "PM2.5" }
+          "title": {
+            "en": "PM2.5",
+            "nl": "PM2.5"
+          }
         },
         "measure_pm10": {
-          "title": { "en": "PM10", "nl": "PM10" }
+          "title": {
+            "en": "PM10",
+            "nl": "PM10"
+          }
         }
       },
       "images": {
@@ -147,7 +190,10 @@
           {
             "name": "co2",
             "type": "number",
-            "title": { "en": "CO₂ (ppm)", "nl": "CO₂ (ppm)" }
+            "title": {
+              "en": "CO₂ (ppm)",
+              "nl": "CO₂ (ppm)"
+            }
           }
         ],
         "args": [
@@ -159,7 +205,10 @@
           {
             "name": "threshold",
             "type": "number",
-            "placeholder": { "en": "1000", "nl": "1000" }
+            "placeholder": {
+              "en": "1000",
+              "nl": "1000"
+            }
           }
         ]
       },
@@ -181,7 +230,10 @@
           {
             "name": "pm25",
             "type": "number",
-            "title": { "en": "PM2.5 (μg/m³)", "nl": "PM2.5 (μg/m³)" }
+            "title": {
+              "en": "PM2.5 (μg/m³)",
+              "nl": "PM2.5 (μg/m³)"
+            }
           }
         ],
         "args": [
@@ -193,7 +245,10 @@
           {
             "name": "threshold",
             "type": "number",
-            "placeholder": { "en": "25", "nl": "25" }
+            "placeholder": {
+              "en": "25",
+              "nl": "25"
+            }
           }
         ]
       },
@@ -215,7 +270,10 @@
           {
             "name": "pm10",
             "type": "number",
-            "title": { "en": "PM10 (μg/m³)", "nl": "PM10 (μg/m³)" }
+            "title": {
+              "en": "PM10 (μg/m³)",
+              "nl": "PM10 (μg/m³)"
+            }
           }
         ],
         "args": [
@@ -227,7 +285,10 @@
           {
             "name": "threshold",
             "type": "number",
-            "placeholder": { "en": "50", "nl": "50" }
+            "placeholder": {
+              "en": "50",
+              "nl": "50"
+            }
           }
         ]
       }
@@ -252,7 +313,10 @@
           {
             "name": "threshold",
             "type": "number",
-            "placeholder": { "en": "ppm", "nl": "ppm" }
+            "placeholder": {
+              "en": "ppm",
+              "nl": "ppm"
+            }
           }
         ]
       },
@@ -275,7 +339,10 @@
           {
             "name": "threshold",
             "type": "number",
-            "placeholder": { "en": "μg/m³", "nl": "μg/m³" }
+            "placeholder": {
+              "en": "μg/m³",
+              "nl": "μg/m³"
+            }
           }
         ]
       },
@@ -298,7 +365,10 @@
           {
             "name": "threshold",
             "type": "number",
-            "placeholder": { "en": "μg/m³", "nl": "μg/m³" }
+            "placeholder": {
+              "en": "μg/m³",
+              "nl": "μg/m³"
+            }
           }
         ]
       },
@@ -321,7 +391,10 @@
           {
             "name": "threshold",
             "type": "number",
-            "placeholder": { "en": "%", "nl": "%" }
+            "placeholder": {
+              "en": "%",
+              "nl": "%"
+            }
           }
         ]
       }
