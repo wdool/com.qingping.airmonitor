@@ -13,8 +13,8 @@
     "nl": "Qingping Luchtmonitor"
   },
   "description": {
-    "en": "Monitor indoor air quality with Qingping sensors. Track CO₂, PM2.5, PM10, temperature and humidity.",
-    "nl": "Bewaak de binnenluchtkwaliteit met Qingping sensoren. Volg CO₂, PM2.5, PM10, temperatuur en vochtigheid."
+    "en": "Know exactly when it is time to open a window.",
+    "nl": "Weet precies wanneer het tijd is om een raam open te zetten."
   },
   "tags": {
     "en": [
@@ -175,8 +175,8 @@
       {
         "id": "co2_threshold_exceeded",
         "title": {
-          "en": "CO₂ exceeds threshold",
-          "nl": "CO₂ overschrijdt drempelwaarde"
+          "en": "CO₂ rises above a value",
+          "nl": "CO₂ stijgt boven een waarde"
         },
         "titleFormatted": {
           "en": "CO₂ exceeds [[threshold]] ppm",
@@ -206,17 +206,19 @@
             "name": "threshold",
             "type": "number",
             "placeholder": {
-              "en": "1000",
-              "nl": "1000"
-            }
+              "en": "ppm",
+              "nl": "ppm"
+            },
+            "min": 400,
+            "max": 5000
           }
         ]
       },
       {
         "id": "pm25_threshold_exceeded",
         "title": {
-          "en": "PM2.5 exceeds threshold",
-          "nl": "PM2.5 overschrijdt drempelwaarde"
+          "en": "PM2.5 rises above a value",
+          "nl": "PM2.5 stijgt boven een waarde"
         },
         "titleFormatted": {
           "en": "PM2.5 exceeds [[threshold]] μg/m³",
@@ -246,17 +248,19 @@
             "name": "threshold",
             "type": "number",
             "placeholder": {
-              "en": "25",
-              "nl": "25"
-            }
+              "en": "μg/m³",
+              "nl": "μg/m³"
+            },
+            "min": 0,
+            "max": 1000
           }
         ]
       },
       {
         "id": "pm10_threshold_exceeded",
         "title": {
-          "en": "PM10 exceeds threshold",
-          "nl": "PM10 overschrijdt drempelwaarde"
+          "en": "PM10 rises above a value",
+          "nl": "PM10 stijgt boven een waarde"
         },
         "titleFormatted": {
           "en": "PM10 exceeds [[threshold]] μg/m³",
@@ -286,9 +290,11 @@
             "name": "threshold",
             "type": "number",
             "placeholder": {
-              "en": "50",
-              "nl": "50"
-            }
+              "en": "μg/m³",
+              "nl": "μg/m³"
+            },
+            "min": 0,
+            "max": 1000
           }
         ]
       }
